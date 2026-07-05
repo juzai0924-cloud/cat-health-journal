@@ -1,0 +1,1 @@
+{"name":"猫咪健康簿","short_name":"健康簿","description":"记录猫咪驱虫和不适情况","start_url":"./","display":"standalone","background_color":"#f7f3ec","theme_color":"#f7f3ec","icons":[{"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
