@@ -10,7 +10,7 @@
 
 想先了解功能、不保存真实记录，也可以打开：
 
-**[体验示例 Demo](https://juzai0924-cloud.github.io/cat-health-journal/?demo=1)**
+**[体验示例 Demo](https://juzai0924-cloud.github.io/cat-health-journal/demo/)**
 
 建议使用手机浏览器打开，并添加到主屏幕。之后可以像普通 App 一样从桌面进入。
 
