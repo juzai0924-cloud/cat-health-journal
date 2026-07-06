@@ -7,23 +7,7 @@
   <link rel="manifest" href="./manifest.webmanifest"><link rel="stylesheet" href="./styles.css"><title>猫咪健康簿</title>
 </head>
 <body>
-<section class="lock-screen" id="lockScreen">
-  <div class="lock-card">
-    <div class="lock-icon">🐾</div>
-    <p class="eyebrow">PRIVATE BY DEFAULT</p>
-    <h1 id="lockTitle">保护健康记录</h1>
-    <p class="lock-copy" id="lockCopy">设置密码后，记录和照片会先在设备中加密，再保存。</p>
-    <form id="lockForm" class="form-grid">
-      <label class="field"><span>密码</span><input id="vaultPassword" type="password" minlength="8" maxlength="128" autocomplete="current-password" required></label>
-      <label class="field" id="confirmField"><span>再次输入</span><input id="vaultPasswordConfirm" type="password" minlength="8" maxlength="128" autocomplete="new-password"></label>
-      <p class="lock-warning" id="lockWarning">密码不会上传，也无法找回。请务必自行记住。</p>
-      <button class="button primary" id="lockSubmit" type="submit">加密并开始使用</button>
-    </form>
-    <div class="demo-entry"><span>或者</span><button class="button demo-button" id="demoButton" type="button">快速体验示例 Demo</button><small>使用虚构数据，不读取也不保存你的记录</small></div>
-    <p class="lock-error" id="lockError" role="alert"></p>
-  </div>
-</section>
-<div class="app-shell" id="appShell" hidden>
+<div class="app-shell" id="appShell">
   <header class="topbar"><div><p class="eyebrow" id="todayText"></p><h1>猫咪健康簿</h1></div><button class="avatar-button" id="petButton" aria-label="编辑猫咪信息">🐈</button></header>
   <aside class="demo-banner" id="demoBanner" hidden><span><b>示例体验模式</b> · 所有修改将在刷新后重置</span><button id="exitDemoTop" type="button">退出</button></aside>
   <main>
@@ -36,10 +20,10 @@
       <div class="section-heading"><div><p class="eyebrow">RECENT</p><h2>最近记录</h2></div><button class="text-button" data-nav="timeline">查看全部</button></div><div id="recentRecords" class="record-list"></div>
     </section>
     <section class="view" id="timelineView"><div class="page-title"><p class="eyebrow">HEALTH TIMELINE</p><h2>健康时间线</h2><p class="muted">把零散情况变成连续、可回顾的记录。</p></div><div class="filter-row"><button class="chip active" data-filter="all">全部</button><button class="chip" data-filter="symptom">不适</button><button class="chip" data-filter="deworming">驱虫</button></div><div id="timelineRecords" class="record-list spacious"></div></section>
-    <section class="view" id="settingsView"><div class="page-title"><p class="eyebrow">SETTINGS</p><h2>设置与数据</h2><p class="muted">周期可以跟随药品变化随时调整。</p></div><div class="settings-card"><button class="setting-row" id="editPetRow"><span><b>猫咪信息</b><small id="petRowHint">未设置</small></span><i>›</i></button><button class="setting-row" id="editPlanRow"><span><b>驱虫周期</b><small id="planRowHint"></small></span><i>›</i></button><button class="setting-row" id="editTypesRow"><span><b>不适类型</b><small id="typesRowHint"></small></span><i>›</i></button></div><div class="settings-card" id="secureDataCard"><button class="setting-row" id="exportButton"><span><b>导出加密备份</b><small>备份需要当前密码才能恢复</small></span><i>↓</i></button><label class="setting-row" for="importInput"><span><b>恢复加密备份</b><small>导入前会验证备份密码</small></span><i>↑</i></label><input id="importInput" type="file" accept="application/json" hidden><button class="setting-row" id="lockButton"><span><b>立即锁定</b><small>清除当前会话中的解密密钥</small></span><i>⌁</i></button></div><div class="settings-card" id="demoDataCard" hidden><button class="setting-row" id="exitDemoSettings"><span><b>退出示例体验</b><small>返回安全版本入口</small></span><i>›</i></button></div><p class="privacy-note" id="privacyNote">🔐 记录和照片使用 AES-GCM 保存在当前设备。密码和解密密钥不会上传，也不会写入浏览器存储。</p></section>
+    <section class="view" id="settingsView"><div class="page-title"><p class="eyebrow">SETTINGS</p><h2>设置与数据</h2><p class="muted">周期可以跟随药品变化随时调整。</p></div><div class="settings-card"><button class="setting-row" id="editPetRow"><span><b>猫咪信息</b><small id="petRowHint">未设置</small></span><i>›</i></button><button class="setting-row" id="editPlanRow"><span><b>驱虫周期</b><small id="planRowHint"></small></span><i>›</i></button><button class="setting-row" id="editTypesRow"><span><b>不适类型</b><small id="typesRowHint"></small></span><i>›</i></button></div><div class="settings-card" id="localDataCard"><button class="setting-row" id="exportButton"><span><b>备份全部数据</b><small>导出 JSON 文件</small></span><i>↓</i></button><label class="setting-row" for="importInput"><span><b>恢复备份</b><small>从 JSON 文件导入</small></span><i>↑</i></label><input id="importInput" type="file" accept="application/json" hidden><button class="setting-row" id="clearDataButton"><span><b>清除本机数据</b><small>删除当前浏览器中的全部记录</small></span><i>×</i></button></div><div class="settings-card" id="demoDataCard" hidden><button class="setting-row" id="exitDemoSettings"><span><b>退出示例体验</b><small>返回我的本地数据</small></span><i>›</i></button></div><p class="privacy-note" id="privacyNote">🔒 所有记录和照片只保存在当前设备浏览器中，不会上传服务器。清理浏览器数据或换设备前请先备份。</p></section>
   </main>
   <nav class="bottom-nav"><button class="nav-item active" data-nav="home"><span>⌂</span>首页</button><button class="nav-add" data-action="open-add" aria-label="添加记录">＋</button><button class="nav-item" data-nav="timeline"><span>◷</span>时间线</button><button class="nav-item" data-nav="settings"><span>⚙</span>设置</button></nav>
 </div>
 <div class="sheet-backdrop" id="sheetBackdrop" hidden></div><section class="sheet" id="sheet" role="dialog" hidden><div class="sheet-handle"></div><div id="sheetContent"></div></section><div class="toast" id="toast" role="status"></div>
-<script src="./crypto.js" defer></script><script src="./app.js" defer></script>
+<script src="./app.js" defer></script>
 </body></html>
