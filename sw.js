@@ -1,9 +1,9 @@
-const CACHE = "cat-health-journal-v12";
+const CACHE = "cat-health-journal-v13";
 const ASSETS = [
   "./",
   "./index.html",
-  "./demo/",
-  "./demo/index.html",
+  "./demo.html",
+  "./demo-route.js?v=1",
   "./styles.css?v=11",
   "./app.js?v=11",
   "./manifest.webmanifest",
